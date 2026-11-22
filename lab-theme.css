@@ -1,0 +1,168 @@
+/* Apperception Machinery / Learning Labs — Modern Objectivity adaptation
+   Derived from the supplied BrandBook V0.2 (working draft).
+   The stage retains scientific accent colors; the UI uses the brand's neutral system.
+*/
+:root {
+  color-scheme: light;
+  --base:#F3F2EF; --surface:#FFFFFF; --soft:#E9E8E3; --hairline:#D4D4CF;
+  --text:#202325; --ink:#202325; --muted:#575D5E;
+  --signal:#009E98; --signal-deep:#006F6B;
+  --mint:#009E98; --bg:#F3F2EF; --panel:#FFFFFF; --panel2:#E9E8E3; --line:#D4D4CF;
+  --cyan:#377F9A; --orange:#A16B30; --purple:#805F9E; --red:#B95652;
+}
+html {scroll-behavior:smooth}
+body {background:var(--base);color:var(--text);font:15px/1.57 'Liberation Sans',Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body,button,input,select {font-family:'Liberation Sans',Arial,Helvetica,sans-serif}
+:focus-visible {outline:3px solid var(--signal)!important;outline-offset:3px}
+.eyebrow,.tag,.section-label,.sidehead,.mono,.number,.navlist span,.chapter .number {font-family:'Liberation Mono',monospace!important;letter-spacing:.075em}
+.eyebrow,.tag {color:var(--signal-deep)!important;font-size:11px;font-weight:500!important;letter-spacing:.12em}
+h1,h2,h3 {letter-spacing:-.045em}
+[hidden]{display:none!important}
+/* Shell: quiet editorial UI; scientific diagrams remain a dark stage. */
+.shell {grid-template-columns:minmax(0,1fr) 294px;grid-template-rows:64px minmax(0,1fr)}
+.shell>.nav {display:none!important}
+.top,.app>header {background:var(--base)!important;color:var(--text)!important;border-bottom:1px solid var(--hairline)!important;min-height:64px;gap:15px}
+.top {padding:0 clamp(14px,2.5vw,36px)!important}
+.topright {margin-left:auto;gap:8px!important}
+.topright a,.header-note a,.homebtn {border:1px solid var(--hairline)!important;background:var(--surface)!important;color:var(--text)!important;border-radius:4px!important;text-decoration:none;padding:8px 11px!important;font-size:12px}
+.topright a:hover,.header-note a:hover {border-color:var(--signal)!important;background:var(--soft)!important}
+.topright>span,.header-note {color:var(--muted)!important;font:11px 'Liberation Mono',monospace}
+.brand {color:var(--text)!important;text-decoration:none!important;gap:11px!important;min-width:0}
+.brand b,.brand strong {color:var(--text)!important;font-weight:700;letter-spacing:-.03em}
+.brand .eyebrow {color:var(--signal-deep)!important}
+.brand .mark {background:transparent!important;border:1px solid var(--signal)!important;color:var(--signal-deep)!important;border-radius:4px!important;width:33px!important;height:33px!important;font:25px 'Liberation Serif',serif!important;flex-shrink:0}
+.main {grid-column:1;grid-row:2;min-width:0;background:var(--base)!important;color:var(--text)!important}
+.rpanel {grid-column:2;grid-row:2;background:var(--soft)!important;color:var(--text)!important;border-left:1px solid var(--hairline)!important;padding:28px 23px!important}
+.headline {padding:clamp(24px,3vw,43px) clamp(20px,4vw,56px) 15px!important}
+.headline h1,.glossary-intro h1 {font-size:clamp(33px,3.8vw,58px)!important;font-weight:400;line-height:1.1;letter-spacing:-.06em;margin-top:12px!important}
+.headline p,.glossary-intro p {font:17px/1.65 'Liberation Serif',Georgia,serif!important;color:var(--muted)!important;max-width:740px}
+.rpanel h2 {font-size:23px!important;font-weight:400;letter-spacing:-.04em;color:var(--text)!important}
+.rpanel p,.rpanel .info span {color:var(--muted)!important;font-size:13px;line-height:1.65}
+.rpanel .info {border-color:var(--hairline)!important}
+.rpanel .info b {color:var(--text)!important}
+.rpanel .tag {color:var(--signal-deep)!important}
+.stepslink a {border:1px solid var(--hairline)!important;background:var(--surface)!important;color:var(--text)!important;border-radius:4px!important}
+.stepslink a:hover {border-color:var(--signal)!important;background:var(--soft)!important}
+/* Scientific stage: the dark canvas keeps the contrast of diagrams and generated SVG labels. */
+.canvaswrap {background:radial-gradient(ellipse at center,#17333D 0%,#0C202B 68%,#0B1B26 100%)!important;border:1px solid #52666E!important;border-radius:5px!important;box-shadow:0 16px 46px rgba(17,34,38,.12);margin-left:clamp(18px,3vw,45px)!important;margin-right:clamp(18px,3vw,45px)!important}
+.canvaswrap::before {background-size:40px 40px!important}
+.footviz {color:#B7CAD1!important;font-family:'Liberation Mono',monospace;font-size:10px}
+.viz text {font-family:'Liberation Sans',Arial,sans-serif!important}
+.controls,.result,.notebox {margin-left:clamp(18px,3vw,45px)!important;margin-right:clamp(18px,3vw,45px)!important}
+.controls {background:var(--surface)!important;border:1px solid var(--hairline)!important;border-radius:5px!important;padding:19px 20px!important;box-shadow:0 4px 20px rgba(0,0,0,.025)}
+.controlrow label {color:var(--muted)!important}
+.controls button,.rpanel button,.controls select {background:var(--surface)!important;color:var(--text)!important;border:1px solid #BABEB8!important;border-radius:4px!important;min-height:36px}
+.controls button:hover,.rpanel button:hover {background:var(--soft)!important;border-color:var(--signal)!important}
+.controls button.active {background:#DFEFEB!important;color:#00534F!important;border-color:var(--signal)!important}
+.controls input[type=range],.process input[type=range] {accent-color:var(--signal)!important}
+.mono {color:var(--signal-deep)!important}
+.textinp,.glossary-controls input,.glossary-controls select {background:var(--surface)!important;border:1px solid #ABB3AD!important;color:var(--text)!important;border-radius:4px!important}
+.pills span {background:var(--soft)!important;color:var(--text)!important;border:1px solid var(--hairline)!important;border-radius:3px!important}
+.quiz {background:#F6F7F3!important;border:1px solid var(--hairline)!important;border-radius:4px!important;color:var(--text)!important}
+.quiz .feedback {color:var(--signal-deep)!important}
+.result {background:#E6F1ED!important;color:var(--text)!important;border:1px solid #B8D6CD!important;border-left:3px solid var(--signal)!important;border-radius:3px!important}
+.result strong {color:var(--signal-deep)!important}
+.notebox {color:var(--muted)!important;border-left-color:var(--signal)!important}
+/* Index / editorial orientation. */
+.introhero {max-width:1220px!important;padding:clamp(44px,6vw,85px) clamp(22px,5vw,74px)!important}
+.introhero h1 {font-size:clamp(48px,6.1vw,92px)!important;font-weight:400;letter-spacing:-.068em!important;color:var(--text)!important;max-width:900px}
+.introhero>p {font:20px/1.64 'Liberation Serif',Georgia,serif!important;color:var(--muted)!important;max-width:720px!important}
+.flowdiagram {border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:22px 0!important;margin:34px 0!important}
+.flowdiagram span {background:var(--surface)!important;color:var(--text)!important;border:1px solid #BED1CC!important;border-radius:3px!important;font-size:14px}
+.flowdiagram small {color:var(--signal-deep)!important;font:11px 'Liberation Mono',monospace;letter-spacing:.05em!important}
+.gridchap {gap:12px!important}
+.chapter {background:var(--surface)!important;color:var(--text)!important;border:1px solid var(--hairline)!important;border-radius:4px!important;min-height:144px;transition:border-color .15s,background .15s,transform .15s}
+.chapter:hover {background:#F9FCFA!important;border-color:var(--signal)!important;transform:translateY(-2px)}
+.chapter .number {color:var(--signal-deep)!important;font-weight:500}
+.chapter h2 {color:var(--text)!important;font-weight:500}
+.chapter p,.landingfoot {color:var(--muted)!important}
+.chapter .chevron {color:var(--signal-deep)!important}
+.landingfoot {border-top:1px solid var(--hairline)!important}
+/* Glossary: neutral cards and high contrast search. */
+.glossary-intro {padding:34px clamp(20px,3vw,45px) 13px!important}
+.glossary-controls {background:var(--surface)!important;border:1px solid var(--hairline)!important;border-radius:5px!important;box-shadow:0 7px 23px rgba(0,0,0,.045)!important;margin-left:clamp(18px,3vw,45px)!important;margin-right:clamp(18px,3vw,45px)!important}
+.glossary-controls label {color:var(--muted)!important}
+.letters {margin-left:clamp(18px,3vw,45px)!important;margin-right:clamp(18px,3vw,45px)!important}
+.letters button {background:var(--surface)!important;border:1px solid var(--hairline)!important;color:var(--text)!important;border-radius:3px!important}
+.letters button:hover,.letters button[aria-pressed=true] {background:#DDEDE8!important;border-color:var(--signal)!important;color:#004F4B!important}
+.glosscards {padding-left:clamp(18px,3vw,45px)!important;padding-right:clamp(18px,3vw,45px)!important}
+.glossentry {background:var(--surface)!important;border:1px solid var(--hairline)!important;border-radius:4px!important;color:var(--text)!important}
+.glossentry:target {background:#EAF6F1!important;border-color:var(--signal)!important}
+.glossdef {color:var(--muted)!important}
+.glossmeta,.glossmeta a,.glossaryhint,.noresults {color:var(--muted)!important}
+.glossmeta a {color:var(--signal-deep)!important}
+/* 3D explorer: preserve stage and inspection controls; align chrome with the lab system. */
+.app {grid-template-rows:64px minmax(0,1fr)!important;grid-template-columns:250px minmax(0,1fr) 300px!important}
+.app>header {padding:0 clamp(14px,2.5vw,32px)!important}
+.app .brand .mark {display:flex}
+.app .side {background:var(--surface)!important;color:var(--text)!important;padding:24px 18px!important}
+.app .side.left {border-right:1px solid var(--hairline)!important}
+.app .side.right {border-left:1px solid var(--hairline)!important;background:var(--soft)!important}
+.app .section-label,.app .r-title {color:var(--signal-deep)!important;font-family:'Liberation Mono',monospace;font-size:11px;font-weight:500!important}
+.app .tab {border-radius:4px!important;color:var(--muted)!important}
+.app .tab:hover {background:var(--soft)!important}
+.app .tab.active {background:#E3F0EA!important;border:1px solid #B3CFC4!important;color:var(--text)!important}
+.app .tab small {color:var(--muted)!important}
+.app .tab .num {color:var(--signal-deep)!important}
+.app .line {background:var(--hairline)!important}
+.app .legend-row,.app .mini-note {color:var(--muted)!important}
+.app .stage {background:radial-gradient(ellipse at 52% 44%,#1b303a 0%,#101e29 42%,#08131d 84%)!important}
+.app .stage-heading .eyebrow {color:#82CFC5!important}
+.app .stage-heading h1 {color:#F0F4F1!important}
+.app .stage-heading p {color:#BDD0D2!important}
+.app .r-intro {color:var(--text)!important;font-weight:500!important}
+.app .r-text,.app .fact p {color:var(--muted)!important}
+.app .fact {border-color:var(--hairline)!important}
+.app .fact small {color:var(--signal-deep)!important}
+.app .fact strong {color:var(--text)!important}
+.app .pill {background:var(--surface)!important;border-color:var(--hairline)!important;border-radius:4px!important}
+.app .pill span {color:var(--muted)!important}
+.app .pill.d b {color:#20718F!important}.app .pill.r b {color:#895514!important}
+.app .process {background:var(--surface)!important;border:1px solid var(--hairline)!important;border-radius:4px!important}
+.app .process-controls button {background:var(--soft)!important;border:1px solid #BFC7C0!important;color:var(--text)!important;border-radius:4px!important}
+.app .counter,.app .sequence {color:var(--signal-deep)!important}
+.app .bottom-link,.app .seq-caption {color:var(--muted)!important}
+.app .bottom-link strong {color:var(--text)!important}
+/* Global navigation shared by all independent HTML chapters. */
+.labMenuButton,.labThemeButton {display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;background:var(--surface);border:1px solid var(--hairline);border-radius:4px;color:var(--text);padding:8px 11px;font:11px 'Liberation Mono',monospace;min-height:35px;cursor:pointer}
+.labMenuButton:hover,.labThemeButton:hover {border-color:var(--signal)}
+.labMenuButton {order:-1;flex:0 0 auto}
+.labThemeButton {flex:0 0 auto;margin-left:auto}
+.labGlobalNav {position:fixed;inset:0 auto 0 0;width:min(290px,86vw);background:#202627;color:#E8EEEB;z-index:1100;transform:translateX(-104%);transition:transform .22s ease;box-shadow:14px 0 42px rgba(0,0,0,.17);display:flex;flex-direction:column;overflow:auto;visibility:hidden}
+.labGlobalNav.open {transform:translateX(0);visibility:visible}
+.labGlobalNav a {text-decoration:none;color:#C6D2CE}
+.labGlobalNav .labBrand {padding:27px 25px 22px;border-bottom:1px solid #394343}
+.labBrand .labWordmark {font:700 16px/.99 'Liberation Sans',Arial,sans-serif;letter-spacing:-.035em;color:#F2F3EF}
+.labBrand .labSubtitle {display:block;font:10px 'Liberation Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;color:#8FA8A1}
+.labNavHead {display:flex;align-items:center;justify-content:space-between;gap:12px}
+.labNavClose {background:transparent;border:1px solid #4F6460;border-radius:4px;color:#E8EEEB;cursor:pointer;padding:6px 10px;font:20px 'Liberation Sans',Arial}
+.labNavLabel {padding:25px 24px 8px;font:10px 'Liberation Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8AA09A}
+.labNavLinks {padding:5px 13px 25px;display:grid;gap:3px}
+.labNavLinks a {display:flex;gap:13px;padding:11px 12px;align-items:baseline;border:1px solid transparent;border-radius:4px;font-size:13px}
+.labNavLinks a span {font:11px 'Liberation Mono',monospace;color:#80A6A0;min-width:21px}
+.labNavLinks a:hover,.labNavLinks a[aria-current=page] {color:#FFF;background:#34403F}
+.labNavLinks a[aria-current=page] {border-color:#477069}
+.labNavLinks a[aria-current=page] span {color:#71D0C1}
+.labNavFoot {margin-top:auto;border-top:1px solid #394343;padding:20px 25px 27px;font:11px/1.6 'Liberation Mono',monospace;color:#A2B3AE}
+.labNavFoot b {color:#78CFC1}
+.labNavBackdrop {position:fixed;inset:0;z-index:1099;background:rgba(11,20,22,.43);opacity:0;pointer-events:none;transition:opacity .2s ease}
+.labNavBackdrop.visible {opacity:1;pointer-events:auto}
+.labSkip {position:fixed;top:-80px;left:12px;z-index:1200;background:#202627;color:white;padding:10px 14px}
+.labSkip:focus {top:12px}
+.labBrandInline {font:10px 'Liberation Mono',monospace;color:var(--signal-deep);letter-spacing:.09em;text-transform:uppercase}
+/* Optional dark UI, not the default. */
+body.lab-dark {--base:#1E2325;--surface:#272D2F;--soft:#32393A;--hairline:#434A4C;--text:#ECEDEA;--ink:#ECEDEA;--muted:#B0B5B5;--signal-deep:#85D9CA;--line:#434A4C;--bg:#1E2325;--panel:#272D2F;--panel2:#32393A;color-scheme:dark}
+body.lab-dark .brand .mark {color:#78D1C3!important}
+body.lab-dark .chapter:hover {background:#303B3B!important}
+body.lab-dark .controls button,body.lab-dark .rpanel button,body.lab-dark .controls select {border-color:#586462!important}
+body.lab-dark .controls button.active,body.lab-dark .app .tab.active {background:#254D46!important;color:#CFF4E8!important;border-color:#4D998C!important}
+body.lab-dark .quiz,body.lab-dark .glossentry:target,body.lab-dark .result {background:#273D39!important;color:var(--text)!important}
+body.lab-dark .letters button:hover,body.lab-dark .letters button[aria-pressed=true] {background:#25544D!important;color:#D7F8EB!important}
+body.lab-dark .flowdiagram span,body.lab-dark .pills span {background:var(--surface)!important;color:var(--text)!important}
+body.lab-dark .chapter p,body.lab-dark .introhero>p {color:var(--muted)!important}
+body.lab-dark .glossary-controls input,body.lab-dark .glossary-controls select,body.lab-dark .textinp {border-color:#697774!important}
+/* No layout jumps on small screens; navigation remains an overlay. */
+@media(max-width:1150px){.shell {grid-template-columns:minmax(0,1fr) 254px}.app {grid-template-columns:218px minmax(0,1fr) 260px!important}}
+@media(max-width:900px){.shell {display:flex!important;flex-direction:column;min-height:100vh}.shell>.top,.shell>.main,.shell>.rpanel {width:100%}.shell>.rpanel {border-left:0!important;border-top:1px solid var(--hairline)!important}.app {grid-template-columns:1fr!important;grid-template-rows:64px auto minmax(470px,65vh) auto!important;max-height:none!important}.app>header {grid-row:1!important}.app .side.left {grid-row:2!important;grid-column:1!important;border-right:0!important;border-bottom:1px solid var(--hairline)!important}.app .stage {grid-row:3!important}.app .side.right {grid-row:4!important;grid-column:1!important;border-left:0!important;border-top:1px solid var(--hairline)!important}.app .side.left .section-label,.app .side.left .line,.app .side.left .legend,.app .side.left .mini-note {display:none!important}}
+@media(max-width:600px){.top,.app>header {padding:9px 13px!important;flex-wrap:wrap;min-height:64px}.topright>span,.header-note>span {display:none!important}.topright {gap:4px!important}.topright a,.header-note a {padding:7px 8px!important;font-size:11px!important}.labThemeButton {margin-left:0}.labMenuButton {padding:7px 8px}.brand .eyebrow {font-size:9px!important}.brand b,.brand strong {font-size:13px!important}.brand .mark {width:28px!important;height:28px!important}.app .header-note {margin-left:auto}.app .brand .eyebrow {display:none}.introhero {padding:38px 19px!important}.introhero h1 {font-size:clamp(43px,12vw,61px)!important}.flowdiagram {gap:8px!important}.flowdiagram span {padding:8px 12px!important}.glossary-controls {position:relative!important;top:auto!important}.canvaswrap,.controls,.result,.notebox {margin-left:11px!important;margin-right:11px!important}}
+@media(prefers-reduced-motion:reduce){.labGlobalNav,.labNavBackdrop,.chapter {transition:none!important}}
