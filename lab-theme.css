@@ -4,16 +4,18 @@
 */
 :root {
   color-scheme: light;
-  --base:#F3F2EF; --surface:#FFFFFF; --soft:#E9E8E3; --hairline:#D4D4CF;
-  --text:#202325; --ink:#202325; --muted:#575D5E;
-  --signal:#009E98; --signal-deep:#006F6B;
-  --mint:#009E98; --bg:#F3F2EF; --panel:#FFFFFF; --panel2:#E9E8E3; --line:#D4D4CF;
+  /* Modern Objectivity practical kit v0.1 / local stage mapping. */
+  --base:var(--mo-bg); --surface:var(--mo-surface); --soft:var(--mo-surface-2); --hairline:var(--mo-border);
+  --text:var(--mo-text); --ink:var(--mo-text); --muted:var(--mo-muted);
+  --signal:#009E98; --signal-deep:var(--mo-accent);
+  --mint:#009E98; --bg:var(--mo-bg); --panel:var(--mo-surface); --panel2:var(--mo-surface-2); --line:var(--mo-border);
+  /* Domain-specific diagram colors, distinct from the UI accent. */
   --cyan:#377F9A; --orange:#A16B30; --purple:#805F9E; --red:#B95652;
 }
 html {scroll-behavior:smooth}
 body {background:var(--base);color:var(--text);font:15px/1.57 'Liberation Sans',Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
 body,button,input,select {font-family:'Liberation Sans',Arial,Helvetica,sans-serif}
-:focus-visible {outline:3px solid var(--signal)!important;outline-offset:3px}
+:focus-visible {outline:3px solid var(--mo-focus)!important;outline-offset:3px}
 .eyebrow,.tag,.section-label,.sidehead,.mono,.number,.navlist span,.chapter .number {font-family:'Liberation Mono',monospace!important;letter-spacing:.075em}
 .eyebrow,.tag {color:var(--signal-deep)!important;font-size:11px;font-weight:500!important;letter-spacing:.12em}
 h1,h2,h3 {letter-spacing:-.045em}
@@ -166,3 +168,16 @@ body.lab-dark .glossary-controls input,body.lab-dark .glossary-controls select,b
 @media(max-width:900px){.shell {display:flex!important;flex-direction:column;min-height:100vh}.shell>.top,.shell>.main,.shell>.rpanel {width:100%}.shell>.rpanel {border-left:0!important;border-top:1px solid var(--hairline)!important}.app {grid-template-columns:1fr!important;grid-template-rows:64px auto minmax(470px,65vh) auto!important;max-height:none!important}.app>header {grid-row:1!important}.app .side.left {grid-row:2!important;grid-column:1!important;border-right:0!important;border-bottom:1px solid var(--hairline)!important}.app .stage {grid-row:3!important}.app .side.right {grid-row:4!important;grid-column:1!important;border-left:0!important;border-top:1px solid var(--hairline)!important}.app .side.left .section-label,.app .side.left .line,.app .side.left .legend,.app .side.left .mini-note {display:none!important}}
 @media(max-width:600px){.top,.app>header {padding:9px 13px!important;flex-wrap:wrap;min-height:64px}.topright>span,.header-note>span {display:none!important}.topright {gap:4px!important}.topright a,.header-note a {padding:7px 8px!important;font-size:11px!important}.labThemeButton {margin-left:0}.labMenuButton {padding:7px 8px}.brand .eyebrow {font-size:9px!important}.brand b,.brand strong {font-size:13px!important}.brand .mark {width:28px!important;height:28px!important}.app .header-note {margin-left:auto}.app .brand .eyebrow {display:none}.introhero {padding:38px 19px!important}.introhero h1 {font-size:clamp(43px,12vw,61px)!important}.flowdiagram {gap:8px!important}.flowdiagram span {padding:8px 12px!important}.glossary-controls {position:relative!important;top:auto!important}.canvaswrap,.controls,.result,.notebox {margin-left:11px!important;margin-right:11px!important}}
 @media(prefers-reduced-motion:reduce){.labGlobalNav,.labNavBackdrop,.chapter {transition:none!important}}
+/* Modern Objectivity reference kit: laboratory-stage overrides. */
+.labGlobalNav{background:var(--mo-rail)}
+.labNavFoot a{color:#91e0d2;text-decoration:underline;text-underline-offset:3px}
+.labNavFoot a:hover{color:#effffb}
+.labMenuButton,.labThemeButton{border-radius:var(--mo-radius-sm);min-height:39px}
+.labGlobalNav .labNavClose{border-radius:var(--mo-radius-sm)}
+body.lab-dark{
+  --mo-bg:#08191e;--mo-surface:#10272d;--mo-surface-2:#162f35;
+  --mo-text:#d7e8e9;--mo-text-strong:#f4fbfa;--mo-muted:#a2bac0;
+  --mo-border:#2a4a52;--mo-border-strong:#41616b;
+  --mo-accent:#49d9c6;--mo-accent-active:#82eee0;--mo-focus:#81d8ff;
+}
+@media(prefers-reduced-motion:reduce){.labGlobalNav,.labNavBackdrop{transition:none!important}}

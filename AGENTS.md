@@ -79,3 +79,7 @@ Do not treat a provisional BrandBook as a permanently finalized corporate identi
 - Continue development directly in **`lab-molecular-biology`**. The original prototype remains in **`dnarna-learning-test`** and must not be deleted without an explicit request.
 
 The overall Learning Labs coordination Space documents conceptual connections, but this repository must remain fully understandable and functional without access to that Space.
+
+## Practical Modern Objectivity style kit
+
+The [published practical style kit](https://philippklinz.github.io/modern-objectivity-style/) is the **reference implementation v0.1 draft** for the common UI. The local `modern-objectivity.css` is an exact vendored copy of upstream (blob SHA `c6af71a8688b9001313d19a642e8f308fa463280`, GPL-2.0-only), loaded by every HTML chapter. **Keep this vendor CSS unchanged**; adapt the stage through `lab-theme.css` and semantic `--mo-*` tokens. Preserve domain-specific visualizations, readable dark themes, and educational interactions. Modern Objectivity does not mandate a universal palette or layout. When upgrading, verify all chapter navigation, contrast, focus, responsiveness and scientific behavior.

@@ -46,3 +46,7 @@ Arbeitsregeln für Coding-Agenten: [AGENTS.md](AGENTS.md). Diese Datei hält Ler
 ## Lizenz
 
 Dieses Repository steht unter der [GNU General Public License v2.0](LICENSE). Für eingebundene Bibliotheken gelten deren jeweilige Lizenzbedingungen.
+
+## Modern Objectivity – praktisches Style-Kit
+
+Die Lernstationen binden eine **lokale, unveränderte Kopie** des [Modern Objectivity Style Kit v0.1 (Draft)](https://philippklinz.github.io/modern-objectivity-style/) ein. Die Datei [modern-objectivity.css](modern-objectivity.css) entspricht dem [Referenz-Stylesheet](https://github.com/philippklinz/modern-objectivity-style/blob/main/styles/modern-objectivity.css), Quell-Blob `c6af71a8688b9001313d19a642e8f308fa463280` (GPL-2.0-only). `lab-theme.css` bildet die semantischen `--mo-*`-Tokens auf dieses Labor ab, einschließlich seines eigenen Hell-/Dunkelmodus. Die wissenschaftlichen Schaubilder behalten ihre fachspezifische Gestaltung. Für das Designsystem wird kein CDN benötigt.
